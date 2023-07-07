@@ -40,13 +40,13 @@ export const Book1 = styled.div`
   background: ${pageColor};
 `;
 interface RibbonProps {
-  ribbonColor?: string;
+  $ribbonColor?: string;
 }
 export const Ribbon = styled.div<RibbonProps>`
   height: 2.8em;
   width: 2em;
   background: ${(props) =>
-    props.ribbonColor ? props.ribbonColor : ribbon1Color};
+    props.$ribbonColor ? props.$ribbonColor : ribbon1Color};
   position: absolute;
   margin: 1.2em 0 0 0.95em;
   z-index: 1;
@@ -58,18 +58,18 @@ export const Ribbon = styled.div<RibbonProps>`
   }
   :before {
     border-left: 0px solid
-      ${(props) => (props.ribbonColor ? props.ribbonColor : ribbon1Color)};
+      ${(props) => (props.$ribbonColor ? props.$ribbonColor : ribbon1Color)};
     border-right: 1em solid transparent;
     border-top: 1.2em solid
-      ${(props) => (props.ribbonColor ? props.ribbonColor : ribbon1Color)};
+      ${(props) => (props.$ribbonColor ? props.$ribbonColor : ribbon1Color)};
   }
   :after {
     right: 0;
     border-left: 1em solid transparent;
     border-right: 0px solid
-      ${(props) => (props.ribbonColor ? props.ribbonColor : ribbon1Color)};
+      ${(props) => (props.$ribbonColor ? props.$ribbonColor : ribbon1Color)};
     border-top: 1.2em solid
-      ${(props) => (props.ribbonColor ? props.ribbonColor : ribbon1Color)};
+      ${(props) => (props.$ribbonColor ? props.$ribbonColor : ribbon1Color)};
   }
 `;
 const left = css`
@@ -79,7 +79,7 @@ const right = css`
   right: 0;
 `;
 interface Props {
-  side: "left" | "right";
+  $side: "left" | "right";
 }
 export const BookCut = styled.div<Props>`
   background-color: ${(props) => props.theme.colors.background};
@@ -87,7 +87,7 @@ export const BookCut = styled.div<Props>`
   width: 0.5em;
   height: 3em;
   ${(props) => {
-    switch (props.side) {
+    switch (props.$side) {
       case "left":
         return left;
       case "right":

@@ -1,12 +1,12 @@
 import { createHashRouter } from "react-router-dom";
 import App from "../App";
-import TableView from "../pages/TableView";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import TableView from "../app/pages/TableView";
+import ErrorPage from "../app/pages/ErrorPage/ErrorPage";
 import paths from "./paths";
-import BooksPage from "../pages/BooksPage/BooksPage";
-import CategoryPage from "../pages/CategoryPage/CategoryPage";
-import BookPage from "../pages/BookPage/BookPage";
-import AllCategoriesPage from "../pages/AllCategoriesPage/AllCategoriesPage";
+import BooksPage from "../app/pages/BooksPage/BooksPage";
+import CategoryPage from "../app/pages/CategoryPage/CategoryPage";
+import BookPage from "../app/pages/BookPage/BookPage";
+import AllCategoriesPage from "../app/pages/AllCategoriesPage/AllCategoriesPage";
 
 export const router = createHashRouter([
   {
