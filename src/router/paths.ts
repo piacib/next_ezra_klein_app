@@ -14,13 +14,13 @@ const bookPageBase = "book";
 const categoryBase = "category";
 
 const paths: PathObject = {
-  table: "table",
-  randombook: `${bookPageBase}`,
-  home: "",
-  books: "books",
-  bookpage: `${bookPageBase}/:id`,
-  categories: `${categoryBase}/:id`,
-  allcategories: categoryBase,
+  table: "/table",
+  randombook: `/${bookPageBase}`,
+  home: "/",
+  books: "/books",
+  bookpage: `/${bookPageBase}/:id`,
+  categories: `/${categoryBase}/:id`,
+  allcategories: `/${categoryBase}`,
 };
 export type PathGenerator = (id: string) => string;
 export const pathGenerator = {
