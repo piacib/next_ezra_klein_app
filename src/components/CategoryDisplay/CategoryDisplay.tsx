@@ -25,8 +25,7 @@ const booksByCategory = (category: string | undefined) => {
   return list;
 };
 const CategoryDisplay = () => {
-  const params = useParams();
-  const id = params?.id as string;
+  const id = useId();
   const books = booksByCategory(id);
   return (
     <>
@@ -41,3 +40,12 @@ const CategoryDisplay = () => {
 };
 
 export default CategoryDisplay;
+
+const useId = () => {
+  const params = useParams();
+  console.log(params);
+  if (!(typeof params?.id === "string")) {
+    return undefined;
+  }
+  return decodeURI(params.id);
+};
