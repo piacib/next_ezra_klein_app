@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { devices, sizesRem } from "../../styles/devices";
 import { bubbleCSS } from "../Categories/Categories.styles";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export const TableElement = styled.table`
   margin-top: ${(props) => props.theme.spacing.l};
