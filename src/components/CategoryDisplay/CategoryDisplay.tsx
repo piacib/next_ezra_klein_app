@@ -1,9 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { alldata } from "../../alldata";
+import { alldata } from "@/data_temp";
 import BookCard from "../BookCard/BookCard";
 import { BooksContainer, CategoryHeader } from "./CategoryDisplay.styles";
 import { Title } from "../Header/Header.styles";
+import { useParams } from "next/navigation";
 
 const booksByCategory = (category: string | undefined) => {
   const list: string[] = [];
@@ -25,14 +25,15 @@ const booksByCategory = (category: string | undefined) => {
   return list;
 };
 const CategoryDisplay = () => {
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id as string;
   const books = booksByCategory(id);
   return (
     <>
       <CategoryHeader>{id}</CategoryHeader>
       <BooksContainer>
-        {books.map((id) => (
-          <BookCard id={id} />
+        {books.map((id, idx) => (
+          <BookCard key={id + idx} id={id} />
         ))}
       </BooksContainer>
     </>
