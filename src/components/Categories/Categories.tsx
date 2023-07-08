@@ -14,7 +14,7 @@ const Categories = ({ list }: Props) => {
   return (
     <CategoriesContainer>
       {categoryList.map((x) => (
-        <BubbleLink to={pathGenerator.categories(x)} key={x}>
+        <BubbleLink href={pathGenerator.categories(x)} key={x}>
           {x}
         </BubbleLink>
       ))}
