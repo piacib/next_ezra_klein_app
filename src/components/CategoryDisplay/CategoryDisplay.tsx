@@ -2,8 +2,7 @@ import React from "react";
 import { alldata } from "@/data_temp";
 import BookCard from "../BookCard/BookCard";
 import { BooksContainer, CategoryHeader } from "./CategoryDisplay.styles";
-import { Title } from "../Header/Header.styles";
-import { useParams } from "next/navigation";
+import useId from "@/hooks/useId/useId";
 
 const booksByCategory = (category: string | undefined) => {
   const list: string[] = [];
@@ -40,12 +39,3 @@ const CategoryDisplay = () => {
 };
 
 export default CategoryDisplay;
-
-const useId = () => {
-  const params = useParams();
-  console.log(params);
-  if (!(typeof params?.id === "string")) {
-    return undefined;
-  }
-  return decodeURI(params.id);
-};
