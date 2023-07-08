@@ -1,4 +1,4 @@
-import { alldata } from "../../alldata";
+import { alldata } from "@/data_temp";
 import Categories from "../Categories/Categories";
 const categoryList = Object.values(alldata)
   .filter((x) => x.categories)

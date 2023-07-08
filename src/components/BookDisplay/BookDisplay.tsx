@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useFetchBook from "./useFetchBook";
+import useFetchBook from "../../hooks/useFetchBook";
 import Categories from "../Categories/Categories";
 import {
   Title,
@@ -18,7 +18,7 @@ import {
 } from "./BookDisplay.styles";
 import { dateGenerator } from "./BookDisplay.functions";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
-import { alldata } from "../../alldata";
+import { alldata } from "@/data_temp";
 
 const BookDisplay = () => {
   const data = useFetchBook();

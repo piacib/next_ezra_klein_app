@@ -27,7 +27,7 @@ import {
   EpisodeTitleSpan,
   ButtonContainer,
 } from "./Table.styles";
-import { alldata, book, episodeDateObj } from "../../alldata";
+import { alldata, book, episodeDateObj } from "@/data_temp";
 import paths, { pathGenerator } from "../../router/paths";
 const data = alldata;
 const convertToDateStr = (date: Date | null) => {
@@ -58,8 +58,8 @@ const Table = () => {
           </TableHead>
         </thead>
         <TBody>
-          {books.slice(index, index + increment).map((title) => (
-            <TableRows title={title} data={data[title]} />
+          {books.slice(index, index + increment).map((title, idx) => (
+            <TableRows key={title + idx} title={title} data={data[title]} />
           ))}
         </TBody>
       </TableElement>
@@ -142,7 +142,7 @@ const TableRows = ({ data, title }: RowProps) => {
         </TableCell>
         <BookCoverCell>
           <BookCoverContainer
-            to={data.id ? pathGenerator.bookpage(data.id) : ""}
+            href={data.id ? pathGenerator.bookpage(data.id) : ""}
           >
             <BookCover src={getImage(data.imageLinks)} />
           </BookCoverContainer>
@@ -169,8 +169,8 @@ export const HiddenRowElement = ({ showInfo, data }: HiddenRowElementProps) => {
   return (
     <HiddenRow showInfo={showInfo}>
       <td colSpan={6}>
-        {data.map((title) => (
-          <EpisodeContainer>
+        {data.map((title, idx) => (
+          <EpisodeContainer key={title + idx}>
             <EpisodeDateSpan>
               {convertToDateStr(episodeDateObj[title]?.date)}
             </EpisodeDateSpan>

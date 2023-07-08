@@ -14511,3 +14511,8 @@ export const getRandomBook = () => {
   }
   return id;
 };
+
+export const allCategoriesList = Object.values(alldata)
+  .filter((x) => x.categories)
+  .map((x) => x.categories)
+  .flat(1) as string[];

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
-import { idTitlePairs } from "../../alldata";
+
+import { useParams } from "next/navigation";
+import { idTitlePairs } from "@/data_temp";
+import useId from "@/hooks/useId/useId";
 const bookEntry = {
   kind: "books#volume",
   id: "ZWRQEAAAQBAJ",
@@ -158,7 +160,7 @@ interface BookData {
   publishedDate: string;
 }
 const useFetchBook = () => {
-  const { id } = useParams();
+  const id = useId();
   const { status, data, error, loading } = useFetch<GoogleBookAPIResponse>(
     googleBookAPIGenerator(id ? id : "")
   );

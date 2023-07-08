@@ -2,7 +2,7 @@ import styled from "styled-components";
 import BookCarousel from "../BookCarousel/BookCarousel";
 import { useEffect } from "react";
 import Categories from "../Categories/Categories";
-import { mostPopular, recommendedId } from "../../alldata";
+import { mostPopular, recommendedId } from "@/data_temp";
 const categories = [
   "Fiction / Fantasy / Historical",
   "Fiction / Fantasy / Epic",
