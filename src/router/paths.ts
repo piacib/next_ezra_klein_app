@@ -17,7 +17,7 @@ const paths: PathObject = {
   table: "/table",
   randombook: `/${bookPageBase}`,
   home: "/",
-  books: "/books",
+  books: "/",
   bookpage: `/${bookPageBase}/:id`,
   categories: `/${categoryBase}/:id`,
   allcategories: `/${categoryBase}`,
