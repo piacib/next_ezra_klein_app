@@ -18,7 +18,7 @@ import {
 } from "./BookDisplay.styles";
 import { dateGenerator } from "./BookDisplay.functions";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
-import { alldata } from "../../alldata";
+import { alldata } from "@/data_temp";
 
 const BookDisplay = () => {
   const data = useFetchBook();
