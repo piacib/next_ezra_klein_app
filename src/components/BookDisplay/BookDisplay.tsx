@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useFetchBook from "./useFetchBook";
+import useFetchBook from "../../hooks/useFetchBook";
 import Categories from "../Categories/Categories";
 import {
   Title,
