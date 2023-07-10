@@ -16,13 +16,13 @@ const Carousel = ({ children }: { children: JSX.Element[] }) => {
     usePosition(ref);
   return (
     <CarouselContainer role="region" aria-label="Colors carousel">
-      <LeftCarouselButton hasItemsOnLeft={hasItemsOnLeft} onClick={scrollLeft}>
+      <LeftCarouselButton $hasItemsOnLeft={hasItemsOnLeft} onClick={scrollLeft}>
         <ArrowLeft />
       </LeftCarouselButton>
       <CarouselContainerInner ref={ref}>{children}</CarouselContainerInner>
 
       <RightCarouselButton
-        hasItemsOnRight={hasItemsOnRight}
+        $hasItemsOnRight={hasItemsOnRight}
         onClick={scrollRight}
       >
         <ArrowRight />
