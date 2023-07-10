@@ -8,11 +8,12 @@ const spinning = keyframes`
     }
   
   `;
-export const LoadingIcon = styled.img`
+export const LoadingIcon = styled.svg`
   animation: ${spinning} 4s infinite linear;
   height: 9rem;
   width: 9rem;
   margin: auto;
+  
 `;
 export const Container = styled.div`
   width: 100%;

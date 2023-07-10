@@ -35,7 +35,13 @@ const BookDisplay = () => {
       setFailed(true);
     }, 5000);
     return (
-      <LoadContainer>{!failed ? <LoadingScreen /> : <Failed />}</LoadContainer>
+      <LoadContainer>
+        {!failed ? (
+          <LoadingScreen titleId={"book-load"} title={"loading book"} />
+        ) : (
+          <Failed />
+        )}
+      </LoadContainer>
     );
   }
   console.log("data", alldata[data.title]);
