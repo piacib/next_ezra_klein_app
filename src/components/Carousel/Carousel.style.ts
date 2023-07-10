@@ -68,10 +68,10 @@ export const CarouselButton = styled("button")`
   padding: 0.5rem;
 `;
 interface LeftButtonProps {
-  hasItemsOnLeft: boolean;
+  $hasItemsOnLeft: boolean;
 }
 interface RightButtonProps {
-  hasItemsOnRight: boolean;
+  $hasItemsOnRight: boolean;
 }
 // Display buttons on hover
 export const LeftCarouselButton = styled(CarouselButton)<LeftButtonProps>`
@@ -81,7 +81,7 @@ export const LeftCarouselButton = styled(CarouselButton)<LeftButtonProps>`
   ${CarouselContainer}:hover & {
     transform: translate(0%, -50%);
   }
-  visibility: ${({ hasItemsOnLeft }) => (hasItemsOnLeft ? `all` : `hidden`)};
+  visibility: ${({ $hasItemsOnLeft }) => ($hasItemsOnLeft ? `all` : `hidden`)};
 `;
 // Position the buttons to their respective sides
 export const RightCarouselButton = styled(CarouselButton)<RightButtonProps>`
@@ -91,5 +91,6 @@ export const RightCarouselButton = styled(CarouselButton)<RightButtonProps>`
   ${CarouselContainer}:hover & {
     transform: translate(0%, -50%);
   }
-  visibility: ${({ hasItemsOnRight }) => (hasItemsOnRight ? `all` : `hidden`)};
+  visibility: ${({ $hasItemsOnRight }) =>
+    $hasItemsOnRight ? `all` : `hidden`};
 `;
