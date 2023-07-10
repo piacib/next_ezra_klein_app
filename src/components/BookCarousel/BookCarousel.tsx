@@ -1,3 +1,4 @@
+"use client";
 import BookCard from "../BookCard/BookCard";
 import Carousel from "../Carousel/Carousel";
 import { Container, H1, HorizontalCenter } from "./BookCarousel.style";
@@ -6,7 +7,7 @@ interface Props {
   title: string;
 }
 const BookCarousel = ({ books, title }: Props) => {
-  const booksElement = books.map((x) => <BookCard id={x} />);
+  const booksElement = books.map((x, idx) => <BookCard id={x} key={x + idx} />);
   return (
     <Container>
       <H1>{title}</H1>
