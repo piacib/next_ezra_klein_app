@@ -1,3 +1,4 @@
+"use client";
 import { Container, Title } from "./Header.styles";
 import Books from "../BookStack/BookStack";
 import paths, { pathGenerator } from "../../router/paths";
