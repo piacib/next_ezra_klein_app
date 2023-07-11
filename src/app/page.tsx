@@ -2,6 +2,8 @@ import StyleWrapper from "@/styles/StyleWrapper";
 import { mostPopular, recommendedId } from "@/data_temp";
 import BookCarousel from "@/components/BookCarousel/BookCarousel";
 import Categories from "@/components/Categories/Categories";
+import { getDailyRNDList } from "@/utils/randomNumber";
+import { getData } from "./api/route";
 const categories = [
   "Fiction / Fantasy / Historical",
   "Fiction / Fantasy / Epic",
@@ -10,24 +12,19 @@ const categories = [
   "Fiction / Fantasy / Dark Fantasy",
   "Fiction / Fairy Tales, Folk Tales, Legends & Mythology",
 ];
-export default function Home({ data }: { data: any }) {
+
+export default async function Home() {
   const mostPopularIds = mostPopular();
-  const recomended = recommendedId();
-  console.log("data", data);
-  // <StyleWrapper>
-  // </StyleWrapper>
+  const data = await getData();
+  const booksLength = Object.keys(data.books).length;
+  const randomNums = getDailyRNDList(booksLength - 1, 10);
+  const recomendedIds = randomNums.map((x) => Object.keys(data.idPairs)[x]);
+
   return (
     <>
-      <div>data {data}</div>
       <BookCarousel title={"Popular"} books={mostPopularIds} />
-      <BookCarousel title={"Recommended"} books={recomended} />
+      <BookCarousel title={"Recommended"} books={recomendedIds} />
       <Categories list={categories} />
     </>
   );
-}
-
-export async function getServerSideProps() {
-  const res = await fetch(`${process.env.API_URL}/api/test`);
-  const data = await res.json();
-  return { props: { data } };
 }
