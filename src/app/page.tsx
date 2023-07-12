@@ -1,8 +1,7 @@
-"use client";
-import StyleWrapper from "@/styles/StyleWrapper";
-import { mostPopular, recommendedId } from "@/data_temp";
 import BookCarousel from "@/components/BookCarousel/BookCarousel";
 import Categories from "@/components/Categories/Categories";
+import { getRecommendedIds } from "@/utils/getRecommendedIds";
+import { getMostPopular } from "@/utils/getMostPopularBooks";
 const categories = [
   "Fiction / Fantasy / Historical",
   "Fiction / Fantasy / Epic",
@@ -11,14 +10,23 @@ const categories = [
   "Fiction / Fantasy / Dark Fantasy",
   "Fiction / Fairy Tales, Folk Tales, Legends & Mythology",
 ];
-export default function Home() {
-  const mostPopularIds = mostPopular();
-  const recomended = recommendedId();
+
+export default async function Home() {
+  const data = await getData();
+  const mostPopularIds = getMostPopular(data.books);
+  const recommendedIds = getRecommendedIds(data);
+
   return (
-    <StyleWrapper>
+    <>
       <BookCarousel title={"Popular"} books={mostPopularIds} />
-      <BookCarousel title={"Recommended"} books={recomended} />
+      <BookCarousel title={"Recommended"} books={recommendedIds} />
       <Categories list={categories} />
-    </StyleWrapper>
+    </>
   );
 }
+
+export const getData = async () => {
+  const res = await fetch(`${process.env.API_URL}/api`);
+  const data = await res.json();
+  return data;
+};

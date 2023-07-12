@@ -1,3 +1,4 @@
+"use client";
 import useCategories from "./useCategories";
 import {
   BubbleLink,
