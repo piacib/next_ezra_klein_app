@@ -17,7 +17,6 @@ const Header = () => {
         <StyledLink onClick={updateBook} href={randomBook}>
           Random Book
         </StyledLink>
-        <StyledLink href={paths.books}>Books</StyledLink>
         <StyledLink href={paths.allcategories}>Categories</StyledLink>
         <StyledLink href={paths.table}>Table</StyledLink>
       </Nav>
